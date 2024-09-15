@@ -47,15 +47,14 @@ public class ProductController {
         }
     }
 
-    @PostMapping("/product")
+    //@PostMapping(path = "/product", consumes = { MediaType.APPLICATION_OCTET_STREAM_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PostMapping(path = "/product")
     public ResponseEntity<?> addProduct(@RequestPart Product product, @RequestPart MultipartFile imageFile) {
         try {
             Product product1 = service.addProduct(product, imageFile);
             return new ResponseEntity<>(product1, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-
-
         }
     }
 

@@ -25,10 +25,11 @@ public class SecurityConfig {
 
         return http.csrf(customizer -> customizer.disable()).
         		authorizeHttpRequests(authorize -> 	authorize
-        				.requestMatchers("/api/register","/h2-console/**").permitAll()
+        				.requestMatchers("/api/register","/h2-console/**","/**").permitAll()
         				.anyRequest().authenticated()
         				)
                 .httpBasic(Customizer.withDefaults())
+                //.formLogin(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
 
