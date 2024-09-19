@@ -2,6 +2,10 @@ In this Kafka example, assume a passenger booked a cab, once the driver accepts 
 
 This example is built using Spring Boot and Spring Kafka frameworks. The prerequisetes to have a containerization application preinstalled like Docker or Virtual VM. Optionally one can directly install Kafka manually using the Quick Start guide availabe on Kafka site.
 
+Kafka Components:
+
+<img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/kafka-components.jpg" alt="Kafka Components"/>
+
 Once you run both the SpringBoot applications, to start sending the events from driver application send a PUT request to REST service - http://localhost:8082/location  
 
 Get the Docker image:
