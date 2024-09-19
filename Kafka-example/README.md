@@ -36,22 +36,22 @@ $ bin/kafka-console-producer.sh --topic cab-location --bootstrap-server localhos
 >This is my first event
 >This is my second event
 
-### Kafka Components: ###
+# Kafka Components: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/kafka-components.jpg" alt="Kafka Components"/>
 
-### Kafka Messages without key: ###
+# Kafka Messages without key: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/mesages-without-key.png" alt="Kafka Messages without key"/>
 
-### Kafka Messages with key: ###
+# Kafka Messages with key: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/mesages-with-key.png" alt="Kafka Messages with key"/>
 
-### Topic Replication: ###
+# Topic Replication: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/topic-replication.png" alt="Topic Replication"/>
 
-### Partition Leader: ###
+# Partition Leader: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/patition-leader.png" alt="Partition Leader"/>
 
-### Kafka Summary: ###
+# Kafka Summary: #
 <img src="https://github.com/sriharijala/SpringExamples/blob/main/Kafka-example/kafka-summary.png" alt="Kafka Summary"/>
 
 
