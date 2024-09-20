@@ -3,4 +3,4 @@ WORKDIR /app
 COPY ./cab-book-user-SNAPSHOT.jar /app
 COPY ./cab-book-driver-SNAPSHOT.jar /app
 EXPOSE 8081 8082
-CMD ["/bin/bash", "-c", "echo java -jar cab-book-driver-SNAPSHOT.jar;echo java -jar cab-book-user-SNAPSHOT.jar"]
+CMD ["/bin/bash", "-c", "echo java -jar cab-book-driver-SNAPSHOT.jar &;echo java -jar cab-book-user-SNAPSHOT.jar &"]
