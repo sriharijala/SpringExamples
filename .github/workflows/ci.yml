@@ -38,8 +38,8 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: sjala/kafka-example
-        file: {context}/Kafka-example/Dockerfile
         registry: docker.io
+        dockerfile: Kafka-example/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         addLatest: true
