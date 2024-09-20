@@ -3,4 +3,4 @@ WORKDIR /app
 COPY ./target/cab-book-user-SNAPSHOT.jar /app
 COPY ./target/cab-book-driver-SNAPSHOT.jar /app
 EXPOSE 8081 8082
-CMD ["java", "-jar", "spring-0.0.1-SNAPSHOT.jar"]
+CMD ["/bin/bash", "-c", "echo java -jar cab-book-driver-SNAPSHOT.jar;echo java -jar cab-book-user-SNAPSHOT.jar"]
