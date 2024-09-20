@@ -31,7 +31,6 @@ jobs:
     - name: Build cab-book-driver with Maven 
       run: mvn -B package --file Kafka-example/cab-book-driver/pom.xml
       
-    - name: Build cab-book-customer with Maven 
-      run: mvn -B package --file Kafka-example/cab-book-customer/pom.xml
-
+    - name: Build cab-book-user with Maven 
+      run: mvn -B package --file Kafka-example/cab-book-user/pom.xml
  
