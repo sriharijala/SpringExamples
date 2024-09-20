@@ -35,10 +35,10 @@ jobs:
       run: mvn -B package --file Kafka-example/cab-book-user/pom.xml
 
     - name: Copy build output cab-book-driver
-      run: cp Kafka-example/cab-book-driver/target/cab-book-driver-SNAPSHOT.jar
+      run: cp Kafka-example/cab-book-driver/target/cab-book-user-0.0.1-SNAPSHOT.jar.original cab-book-user-0.0.1-SNAPSHOT.jar
 
     - name: Copy build output cab-book-user
-      run: cp Kafka-example/cab-book-user/target/cab-book-user-SNAPSHOT.jar
+      run: cp Kafka-example/cab-book-user/target/cab-book-user-SNAPSHOT.jar.original cab-book-user-SNAPSHOT.jar
     
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v6
