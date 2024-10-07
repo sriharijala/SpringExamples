@@ -43,10 +43,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+				<configuration>				
 					<image>
 						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
+					<!-- Docker image layered build image
+					 <layers>
+			            <enabled>true</enabled>
+			        </layers>
+			        -->
 				</configuration>
 			</plugin>
 		</plugins>

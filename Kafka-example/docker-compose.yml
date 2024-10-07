@@ -1,0 +1,72 @@
+services:
+    zookeeper:
+        image: confluentinc/cp-zookeeper:latest
+        environment:
+            ZOOKEEPER_CLIENT_PORT: 2181
+            ZOOKEEPER_TICK_TIME: 2000
+        ports:
+            - 2181:2181
+        networks:
+            - frontend   
+    kafka-broker:
+        image: confluentinc/cp-kafka:latest
+        depends_on:
+            - zookeeper
+        ports:
+            - 9092:9092
+            - 29092:29092
+        environment:
+            KAFKA_BROKER_ID: 1
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:9092,PLAINTEXT_HOST://localhost:29092
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+            KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+        networks:
+            - frontend
+    cab-book-driver:
+        #container_name: cab-book-driver_${NODE}
+        build:
+            context: cab-book-driver
+            dockerfile: Dockerfile
+        image: cab-book-driver:latest
+        ports:
+           - "8082:8082"            
+        environment:
+           #ENV_KAFKA_BROKER_HOST: kafka-broker
+           kafka-broker: 172.18.0.3
+        depends_on:
+            - kafka-broker
+        networks:
+            - frontend
+        #     - backend
+    cab-book-user:
+        #container_name: cab-book-user_${NODE}
+        build:
+            context: cab-book-user
+            dockerfile: Dockerfile
+        image:  cab-book-user:latest
+        ports:
+            - "8081:8081"
+        environment:
+            #ENV_KAFKA_BROKER_HOST: kafka-broker
+            kafka-broker: 172.18.0.3
+        depends_on:
+            - kafka-broker
+        networks:
+            - frontend
+        #     - backend
+networks:
+  frontend:
+    # Specify driver options
+    driver: bridge
+    # driver_opts:
+    #     com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+#   backend:
+#     # Use a custom driver
+#     driver: custom_driver
+
+
+
+
+
