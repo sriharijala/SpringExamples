@@ -12,10 +12,13 @@ This example use the demonstrate the technologies
 End point to see environment variable using actuator:  http://localhost:8081/actuator/env
 Swagger end point: http://localhost:8080/swagger-ui/index.html
 
-## Replication
+## Replication and Load Balancing using NGINX
 To replicate the services we need to solve the issue with host port conflict. The host machine can only bind an unallocated port to one container only, otherwise  we get an error "failed: port is already allocated error for additional XXX service".
 
 - Use the load balancer will access the back end service without exposing the container ports and distribute the traffic across multiple containers.
+
+Here is the overview of load balancing using NGINX
+<img src="https://github.com/sriharijala/SpringExamples/blob/main/jpa-hibernate_crud/src/main/resources/images/nginx_lb.png"/>
 
 ```
 nginx.conf
